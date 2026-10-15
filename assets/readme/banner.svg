@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">mingzhang-sdd</title>
+  <desc id="desc">From intent to verified delivery. Ten stages, connected decisions.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101f36"/><stop offset="1" stop-color="#080f1c"/></linearGradient>
+    <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="76" y1="338" x2="1202" y2="338"><stop stop-color="#67b8ff"/><stop offset="1" stop-color="#5ee6bd"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#2864a6" stop-opacity=".32"/><stop offset="1" stop-color="#2864a6" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#94b9df" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#background)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#grid)"/>
+  <ellipse cx="1030" cy="130" rx="340" ry="280" fill="url(#glow)"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <rect x="60" y="48" width="232" height="28" rx="14" fill="#17324b" stroke="#325776"/>
+    <circle cx="77" cy="62" r="4" fill="#69e7bc"/>
+    <text x="91" y="67" fill="#b9d7f2" font-size="11" font-weight="600" letter-spacing="1.8">SPEC-DRIVEN WORKFLOW</text>
+    <text x="58" y="159" fill="#f1f7ff" font-size="67" font-weight="750" letter-spacing="-2.7">mingzhang<tspan fill="#6bbaff">-sdd</tspan></text>
+    <text x="62" y="207" fill="#c1d1e3" font-size="25" font-weight="400">From intent to verified delivery.</text>
+    <text x="62" y="244" fill="#8097b1" font-size="15" letter-spacing=".5">10 stages. Connected decisions. Evidence at every handoff.</text>
+    <g transform="translate(928 62)">
+      <path d="M0 52 78 7l78 45v90l-78 45-78-45Z" fill="#122b42" stroke="#335875" stroke-width="1.5"/>
+      <path d="m0 52 78 46 78-46M78 98v89" fill="none" stroke="#335875" stroke-width="1.5"/>
+      <path d="m38 98 26 27 54-59" fill="none" stroke="#70e0bd" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="156" cy="52" r="6" fill="#6bbaff"/>
+      <circle cx="0" cy="142" r="5" fill="#70e0bd"/>
+      <path d="m175 18 26-15m-26 160 26 15M-18 13-44-2" stroke="#406485" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <line x1="62" y1="296" x2="1218" y2="296" stroke="#24405b"/>
+    <line x1="76" y1="338" x2="1202" y2="338" stroke="url(#line)" stroke-width="2"/>
+    <g fill="#0e1b2b" stroke="#69baff" stroke-width="2">
+      <circle cx="76" cy="338" r="7"/><circle cx="200" cy="338" r="7"/><circle cx="326" cy="338" r="7"/><circle cx="451" cy="338" r="7"/><circle cx="576" cy="338" r="7"/>
+      <circle cx="701" cy="338" r="7"/><circle cx="826" cy="338" r="7"/><circle cx="951" cy="338" r="7"/><circle cx="1076" cy="338" r="7"/><circle cx="1202" cy="338" r="7" stroke="#5ee6bd"/>
+    </g>
+    <g fill="#a8bfd6" font-size="12" text-anchor="middle" letter-spacing=".5">
+      <text x="76" y="376">START</text><text x="200" y="376">MRD</text><text x="326" y="376">PRD</text><text x="451" y="376">ARCH</text><text x="576" y="376">MODULE</text>
+      <text x="701" y="376">COMPONENT</text><text x="826" y="376">UI</text><text x="951" y="376">BUILD</text><text x="1076" y="376">VERIFY</text><text x="1202" y="376" fill="#7be3c4">ITERATE</text>
+    </g>
+  </g>
+</svg>
