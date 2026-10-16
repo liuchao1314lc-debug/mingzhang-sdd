@@ -1,4 +1,9 @@
 <p align="center">
+  <a href="README.md"><img alt="简体中文（当前）" src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-2563eb?style=for-the-badge"></a>
+  <a href="README.en.md"><img alt="English" src="https://img.shields.io/badge/English-475569?style=for-the-badge"></a>
+</p>
+
+<p align="center">
   <img src="assets/readme/banner.svg" alt="mingzhang-sdd — From intent to verified delivery" width="100%">
 </p>
 
