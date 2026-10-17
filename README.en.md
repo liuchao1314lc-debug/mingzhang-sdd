@@ -20,6 +20,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
+  <a href="#dsh-plugin">DSH plugin</a> ·
   <a href="#workflow">Ten-stage workflow</a> ·
   <a href="#inside">Resources</a> ·
   <a href="#validation">Version &amp; validation</a>
@@ -72,6 +73,19 @@ run tests, or call external services.
 The skill directory contains methods; the target project directory contains your product deliverables. Existing projects resume from their actual stage, and subsequent actions follow the target project's valid authorization.
 
 For native skill discovery, place the full skill directory in a location supported by your host and check that it is actually discovered and loaded. **The explicit reading approach above lets you check the entry point first. Installation and behavior support must be verified for each host.**
+
+<a id="dsh-plugin"></a>
+### Install through the DSH Plugins button
+
+Open **Plugins → Add** and enter this package source:
+
+```text
+github:liuchao1314lc-debug/mingzhang-sdd#main
+```
+
+The bundle is named `mingzhang-sdd-dsh`; the skill remains `mingzhang-sdd`. Restart the relevant profile if prompted, then invoke `/mingzhang-sdd`. You can also [download the standalone package (about 84 KB)](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz) and enter its absolute path on the DSH machine.
+
+[Installation details and verification limits](README.dsh.md): native-manager installation, loading, toggling, and removal were verified in an isolated DSH `0.2.0-rc.2` environment. The actual web button and other versions remain unverified.
 
 <details>
 <summary><strong>Example: review whether the design covers an existing PRD</strong></summary>

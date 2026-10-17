@@ -20,6 +20,7 @@
 
 <p align="center">
   <a href="#quick-start">快速开始</a> ·
+  <a href="#dsh-plugin">DSH 插件安装</a> ·
   <a href="#workflow">十阶段流程</a> ·
   <a href="#inside">资源导航</a> ·
   <a href="#validation">版本与验证</a>
@@ -69,6 +70,19 @@ git clone https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 技能目录保存方法，目标项目目录保存你的产品成果。已有项目从实际阶段接续，后续动作沿用目标项目的有效授权。
 
 若使用宿主的原生技能发现，将完整目录放到该宿主支持的技能位置，并核对实际发现与加载情况。**本页的显式读取方式可用于先核对入口；不同宿主的安装与行为支持须分别确认。**
+
+<a id="dsh-plugin"></a>
+### 从 DSH 插件按钮安装
+
+在 **插件 → 添加** 的安装来源中填写：
+
+```text
+github:liuchao1314lc-debug/mingzhang-sdd#main
+```
+
+安装的组合包叫 `mingzhang-sdd-dsh`，技能仍叫 `mingzhang-sdd`。按提示重启对应 profile 后，用 `/mingzhang-sdd` 调用。也可[下载独立安装包（约84 KB）](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz)，在插件入口填入其本机绝对路径。
+
+[详细安装说明与验证边界](README.dsh.md)：已在 DSH `0.2.0-rc.2` 隔离环境验证原生管理器安装、加载、启停及卸载；实际网页按钮和其他版本仍待确认。
 
 <details>
 <summary><strong>示例：已经有 PRD，想检查设计承接</strong></summary>
