@@ -13,7 +13,7 @@
 <p align="center">面向 AI 编程协作的 SDD 技能 · 从需求澄清到开发、联调与迭代</p>
 
 <p align="center">
-  <img alt="版本 v0.4" src="https://img.shields.io/badge/version-v0.4-2563eb?style=flat-square">
+  <img alt="v0.6.0 技能源" src="https://img.shields.io/badge/source-v0.6.0-2563eb?style=flat-square">
   <img alt="十阶段方法" src="https://img.shields.io/badge/workflow-10_stages-0f766e?style=flat-square">
   <img alt="本地程序 Node.js 24.x" src="https://img.shields.io/badge/local_tools-Node.js_24.x-334155?style=flat-square">
 </p>
@@ -39,6 +39,8 @@ mingzhang-sdd 将这些工作组织为可按需读取的阶段方法，帮助 Ag
 | **想法还没讲清楚** | 澄清问题、目标、价值与范围；确认的需求及时暂存，再形成 MRD／PRD。 |
 | **规格需要落到设计** | 连接架构、模块、组件与交互，说明职责、接口、异常和验收关系。 |
 | **已有项目继续推进** | 先核对有效成果、当前状态与本次允许范围，选择对应阶段方法。 |
+| **按开发包组织实施** | 划分开发包、依赖路线及可并行条件；宿主不支持并行时按路线串行交错，不冒充并行。 |
+| **资料与版本需要接续** | 明确文件职责、信息权威、历史取代、跨阶段基线及源码与制品身份。 |
 | **实现需要检查和验收** | 按获准功能开发，记录实际验证；将程序结果、用户验收和发布决定分别说明。 |
 | **反馈需要变成下一步** | 分析来源与影响，提出取舍建议，按确认后的范围回到相应阶段。 |
 
@@ -74,10 +76,10 @@ git clone https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 <a id="dsh-plugin"></a>
 ### 从 DSH 插件按钮安装
 
-在 **插件 → 添加** 的安装来源中填写：
+DSH 插件仍使用 **v0.4**；它不含本次新版治理规则。main 提供新版技能源，不再声明 DSH 组合包。优先下载下方原 TGZ，在插件入口填写其本机绝对路径；需要 GitHub 来源时固定到旧提交：
 
 ```text
-github:liuchao1314lc-debug/mingzhang-sdd#main
+github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
 ```
 
 安装的组合包叫 `mingzhang-sdd-dsh`，技能仍叫 `mingzhang-sdd`。按提示重启对应 profile 后，用 `/mingzhang-sdd` 调用。也可[下载独立安装包（约84 KB）](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz)，在插件入口填入其本机绝对路径。
@@ -150,6 +152,8 @@ mingzhang-sdd/
 | 需求怎样记录、确认和变更 | [需求记录规则](rules/requirements.md) |
 | 本地程序怎样调用 | [程序说明](scripts/README.md) · [检查合同](references/check-contract.md) |
 | 文件动作与证据怎样采集 | [采集说明](references/collection.md) |
+| 项目文件、信息与版本怎样治理 | [共用治理方法](references/stage-methods.md#project-material-version-governance) |
+| 任务理解与上下文压缩后怎样保全规则 | [执行规则第11节](rules/execution.md#11-任务理解与上下文保全) |
 | 方法从哪里来、采用了什么 | [来源说明](references/sources.md) |
 
 ### 本地辅助程序
@@ -167,26 +171,29 @@ node /你的路径/mingzhang-sdd/scripts/check-task.mjs --help
 <a id="validation"></a>
 ## 版本与验证
 
-当前公开快照为 **v0.4**。制作项目用户已确认开发阶段和联调测试阶段通过；现有 **`verification_pass` 证据限一个连续模拟案例**，不代表整包、跨工具、长期稳定性或真实用户收益已经验证。
+main 的28份运行文件与制作仓库固定提交 `eb53f8c2289a3250568ad9b5a28bc543204d2c84` 的 `skills/mingzhang-sdd/` 逐字节一致，承接 v0.6.0 技能源。制作仓库提交号用于标明来源，并非本公开仓库的提交号；包内提及的其他制作期固定提交同样保留其来源身份。
+
+这次公开同步包含开发包／路线／并行规则、规则职责与开发前交接，以及已评审通过的两批优化：任务理解与上下文保全、文件／信息与版本治理。正文内容评审和静态／人工文字核对分别按其原对象与范围成立；它们不表示 v0.6.0 整版、模型行为、五工具、效率或真实效果通过。
+
+| 对象 | 取得方式与适用身份 |
+| :--- | :--- |
+| 新版技能源 | 当前 main 的 [SKILL.md](SKILL.md) 及其完整资源；采用时固定所用公开提交 |
+| 旧版 DSH 插件 | [原 v0.4 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) 或固定旧提交 `d85ebcb73b3f79fd25d0201c210266e602598395`；旧包字节不变 |
+| 新版 DSH 插件 | 本次未重建、未安装验证；不把新版技能源称作已验证插件 |
+| 已有本机安装 | 本次 GitHub 更新不自动替换安装副本 |
 
 <details>
-<summary><strong>查看冻结身份、环境与保留限制</strong></summary>
+<summary><strong>历史 v0.4 验证范围与保留限制</strong></summary>
 
-28 份运行文件逐字节取自制作仓库冻结提交：
+旧 v0.4 的28份运行文件取自制作仓库冻结提交 `9ba51578cc3e56a80f95a49332ba52588ae64bdb`。原 DSH TGZ 保留83,615字节的既有对象；这条冻结一致性不再用于描述新版 main 正文。旧版完整公开树仍可在[固定提交](https://github.com/liuchao1314lc-debug/mingzhang-sdd/tree/d85ebcb73b3f79fd25d0201c210266e602598395)读取。
 
-```text
-9ba51578cc3e56a80f95a49332ba52588ae64bdb
-```
-
-该提交号是制作仓库的来源身份，不是本分发仓库的提交号。本次公开整理新增 README 和横幅，运行正文保持冻结原样。正文中的“未发布”等状态保留打包时的历史身份；本页说明当前公开快照。
-
-保留的三项限制：
+制作项目用户曾确认开发阶段和联调测试阶段通过；历史 `verification_pass` 证据限一个连续模拟案例，不自动扩展到本次新正文。保留三项限制原文：
 
 - runs_per_configuration=1 且无对照不代稳定性
 - D-03 中途失败/回滚/断电未验证
 - CLI 默认权限分支与非字符串 text/无效 API 路径分支本轮未执行
 
-其中 D-03 指模拟便签案例的直接覆盖方案。真实用户便利效果、制作项目 MRD 第 6.2 节量化达标仍未验证。已记录的程序局部实测环境为 macOS／Node v24.15.0，其他宿主与平台须分别核对。
+其中 D-03 指模拟便签案例的直接覆盖方案。真实用户便利效果、制作项目 MRD 第6.2节量化达标、整包、跨工具和稳定性仍未验证。历史程序局部实测环境为 macOS／Node v24.15.0。
 
 </details>
 

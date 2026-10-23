@@ -13,7 +13,7 @@
 <p align="center">An SDD skill for working with AI coding agents · From requirements to development, integration testing, and iteration</p>
 
 <p align="center">
-  <img alt="Version v0.4" src="https://img.shields.io/badge/version-v0.4-2563eb?style=flat-square">
+  <img alt="v0.6.0 skill source" src="https://img.shields.io/badge/source-v0.6.0-2563eb?style=flat-square">
   <img alt="Ten-stage workflow" src="https://img.shields.io/badge/workflow-10_stages-0f766e?style=flat-square">
   <img alt="Local tools require Node.js 24.x" src="https://img.shields.io/badge/local_tools-Node.js_24.x-334155?style=flat-square">
 </p>
@@ -41,6 +41,8 @@ This overview is available in English. The linked skill instructions and support
 | **Clarify an idea** | Explore the problem, goals, value, and scope. Record confirmed requirements as they emerge, then prepare an MRD or PRD. |
 | **Turn specifications into design** | Connect architecture, modules, components, and interaction design, including responsibilities, interfaces, exceptions, and acceptance criteria. |
 | **Continue an existing project** | Check the effective deliverables, current state, and permitted scope, then select the appropriate stage method. |
+| **Organize development packages** | Define package boundaries, dependency routes, and concurrency conditions; use sequential interleaving when the host cannot run in parallel. |
+| **Carry files and versions forward** | Identify document responsibilities, authoritative information, superseded history, cross-stage baselines, and source/artifact identities. |
 | **Check and accept an implementation** | Develop authorized features and record actual verification. Report program results, user acceptance, and release decisions separately. |
 | **Turn feedback into next steps** | Analyze the source and impact, propose tradeoffs, and return to the relevant stage within the confirmed scope. |
 
@@ -77,10 +79,10 @@ For native skill discovery, place the full skill directory in a location support
 <a id="dsh-plugin"></a>
 ### Install through the DSH Plugins button
 
-Open **Plugins → Add** and enter this package source:
+The DSH plugin remains **v0.4** and does not contain the new governance rules. Main provides the updated skill source and no longer declares a DSH bundle. Prefer the original TGZ below and enter its local absolute path; for a GitHub source, pin the old commit:
 
 ```text
-github:liuchao1314lc-debug/mingzhang-sdd#main
+github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
 ```
 
 The bundle is named `mingzhang-sdd-dsh`; the skill remains `mingzhang-sdd`. Restart the relevant profile if prompted, then invoke `/mingzhang-sdd`. You can also [download the standalone package (about 84 KB)](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz) and enter its absolute path on the DSH machine.
@@ -156,6 +158,8 @@ mingzhang-sdd/
 | Recording, confirming, and changing requirements | [Requirement rules](rules/requirements.md) |
 | Running local programs | [Program guide](scripts/README.md) · [Check contract](references/check-contract.md) |
 | Collecting file actions and evidence | [Collection guide](references/collection.md) |
+| Project files, information, and versions | [Shared governance method](references/stage-methods.md#project-material-version-governance) |
+| Task understanding and rule preservation after compaction | [Execution rules, section 11](rules/execution.md#11-任务理解与上下文保全) |
 | Method origins and adaptation choices | [Sources](references/sources.md) |
 
 ### Local helper programs
@@ -173,26 +177,29 @@ This skill guides an agent through instructions. It cannot replace host permissi
 <a id="validation"></a>
 ## Version and validation
 
-The current public snapshot is **v0.4**. The development project owner has approved the development and integration testing stages. Existing **`verification_pass` evidence is limited to one continuous simulated case**. It does not establish validation of the complete package, cross-tool support, long-term stability, or real user benefits.
+The 28 runtime files on main match `skills/mingzhang-sdd/` in the development repository's fixed commit `eb53f8c2289a3250568ad9b5a28bc543204d2c84` byte for byte, carrying forward the v0.6.0 skill source. This is a source identity in the development repository, not a commit in this public repository; other development-time commit references inside the skill retain the same provenance.
+
+This update includes development packages, dependency routes and concurrency rules, rule responsibilities and pre-development handoffs, plus two reviewed batches: task understanding and context preservation; file/information and version governance. Content reviews, static checks and manual text walkthroughs retain their original objects and scopes. They do not establish full v0.6.0 acceptance, model behavior, five-tool support, efficiency or real-world benefits.
+
+| Object | Access and scope |
+| :--- | :--- |
+| Updated skill source | [SKILL.md](SKILL.md) and its full resources on main; pin the public commit when adopting |
+| Legacy DSH plugin | [Original v0.4 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) or fixed commit `d85ebcb73b3f79fd25d0201c210266e602598395`; package bytes unchanged |
+| Updated DSH plugin | Not rebuilt or installation-tested in this update; the updated source is not a verified new plugin |
+| Existing local installations | A GitHub update does not automatically replace installed copies |
 
 <details>
-<summary><strong>Frozen source, environment, and retained limitations</strong></summary>
+<summary><strong>Historical v0.4 verification scope and retained limitations</strong></summary>
 
-The 28 runtime files were copied byte for byte from this frozen commit in the development repository:
+The old v0.4 runtime files came from development freeze `9ba51578cc3e56a80f95a49332ba52588ae64bdb`. The existing DSH TGZ remains the original 83,615-byte object. That frozen-byte claim does not describe the updated source on main. The complete old public tree remains available at its [fixed commit](https://github.com/liuchao1314lc-debug/mingzhang-sdd/tree/d85ebcb73b3f79fd25d0201c210266e602598395).
 
-```text
-9ba51578cc3e56a80f95a49332ba52588ae64bdb
-```
-
-This hash identifies the source in the development repository; it is not a commit in this distribution repository. Public-facing additions include the README files and banner. Runtime instructions remain frozen. Statements such as “not published” in those instructions retain their historical meaning at packaging time; this overview describes the public snapshot.
-
-Three limitations remain:
+The project owner previously approved the development and integration testing stages. Historical `verification_pass` evidence covers one continuous simulated case and does not extend automatically to these new instructions. Three limitations remain:
 
 - `runs_per_configuration=1`; a single run without a control does not demonstrate stability.
-- D-03 failures midway through execution, rollback, and power loss were not verified.
-- The CLI default-permission branch, non-string `text`, and invalid API path branches were not executed in this round.
+- D-03 failures midway through execution, rollback and power loss were not verified.
+- The CLI default-permission branch, non-string `text` and invalid API path branches were not executed in that round.
 
-Here, D-03 refers to the direct-overwrite approach in the simulated note-taking case. Real user convenience benefits and the quantitative targets in Section 6.2 of the development project's MRD remain unverified. The recorded local program test environment was macOS with Node v24.15.0. Other hosts and platforms require separate verification.
+D-03 refers to direct overwrite in the simulated note-taking case. Real convenience benefits, MRD section 6.2 quantitative targets, complete-package acceptance, cross-tool support and stability remain unverified. The recorded historical local program environment was macOS with Node v24.15.0.
 
 </details>
 

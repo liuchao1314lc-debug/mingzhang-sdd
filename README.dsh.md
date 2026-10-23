@@ -2,24 +2,36 @@
 
 [简体中文](README.md#dsh-plugin) · [English](README.en.md#dsh-plugin)
 
-在 DSH 的 **插件 → 添加** 中，将以下内容填入包地址／安装来源：
+## 版本选择 / Version selection
+
+main 是新版技能源入口，不再声明 DSH 组合包。本次不重建或验证新版 DSH 插件。已有 v0.4 插件保持原对象，不包含新版任务理解、上下文保全及治理规则。
+
+Main is the updated skill-source entry point and no longer declares a DSH bundle. This update does not rebuild or test a new DSH plugin. The original v0.4 plugin remains unchanged and does not include the new task-understanding, context-preservation or governance rules.
+
+## 安装旧版 v0.4 / Install legacy v0.4
+
+优先[下载原 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz)，在 DSH **插件 → 添加** 中填写下载文件在 DSH 运行机器上的真实绝对路径。该文件仍为原83,615字节对象，不要填 WorkBuddy ZIP。
+
+Prefer the [original TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) and enter its actual absolute path on the machine running DSH under **Plugins → Add**.
+
+需要 GitHub 来源时，固定到旧公开提交，勿用 main：
+
+For a GitHub source, pin the old public commit rather than main:
 
 ```text
-github:liuchao1314lc-debug/mingzhang-sdd#main
+github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
 ```
-
-插件组合包名称为 `mingzhang-sdd-dsh`，技能名称仍为 `mingzhang-sdd`。按提示重启对应 profile 后，在会话中使用 `/mingzhang-sdd`。需要本机可用的 Git、DSH 及其包管理器；技能加载依赖 DSH 的 `skills` 服务。
-
-也可[下载独立 TGZ 安装包](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz)，在插件添加处填入下载文件在 DSH 运行机器上的真实绝对路径。不要填 WorkBuddy 的 ZIP。
-
-Equivalent CLI:
 
 ```bash
-dsh plugin --profile web add github:liuchao1314lc-debug/mingzhang-sdd#main
+dsh plugin --profile web add github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
 ```
 
-Open **Plugins → Add**, enter the package source above, and restart the relevant profile if prompted. The bundle is named `mingzhang-sdd-dsh`; invoke the skill as `/mingzhang-sdd`. Alternatively, download the TGZ and use its absolute path on the machine running DSH.
+组合包名为 `mingzhang-sdd-dsh`，技能名为 `mingzhang-sdd`。按实际提示重启 profile 后使用 `/mingzhang-sdd`。本机需有 Git、DSH和包管理器，加载依赖 DSH 的 `skills` 服务。禁用／卸载不删除手动安装的同名技能，本地同名来源可优先于本包 provider `mingzhang-sdd-bundle`。
 
-禁用／卸载只管理本组合包贡献的技能，不删除手动安装的同名技能。项目／用户同名技能优先，本包来源 provider 为 `mingzhang-sdd-bundle`。The bundle does not remove manually installed copies; local skills can override this bundled provider.
+The bundle is `mingzhang-sdd-dsh`; invoke `/mingzhang-sdd` after any requested profile restart. Local skills may override the bundled provider. Disabling or uninstalling the bundle does not remove manually installed skills.
 
-本包通过 `dsh.bundle.patch` 声明与配置层加载入口注册技能，没有运行依赖或安装脚本。28份技能运行文件保持冻结版本。已在 DSH `0.2.0-rc.2`、Node `v24.15.0` 的隔离 profile 验证原生管理器安装／加载／启停／卸载；实际网页按钮、其他版本和技能模型行为未在该验证中覆盖。The isolated native-manager checks do not establish UI installation, compatibility with other DSH versions, or model behavior.
+## 原验证范围 / Historical verification scope
+
+原 v0.4 的28份运行文件保持制作仓库冻结版本。历史验证在 DSH `0.2.0-rc.2`、Node `v24.15.0` 隔离 profile 覆盖原生管理器安装／加载／启停／卸载；不覆盖实际网页按钮、其他版本、模型行为或新版正文。旧 GitHub 来源检查曾超时，未进入安装，所以不把上述固定来源写成已复验通过。TGZ路径保留原本地包验证身份。
+
+The original v0.4 package was checked through native-manager installation, loading, toggling and removal in an isolated DSH `0.2.0-rc.2` profile with Node `v24.15.0`. Those checks did not cover the web button, other versions, model behavior or the updated source. Historical GitHub-source checks timed out before installation; this pinned source has not been revalidated. The TGZ retains its original local-package verification scope.
