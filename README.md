@@ -20,6 +20,7 @@
 
 <p align="center">
   <a href="#quick-start">快速开始</a> ·
+  <a href="#zcode-plugin">ZCode 插件安装</a> ·
   <a href="#dsh-plugin">DSH 插件安装</a> ·
   <a href="#workflow">十阶段流程</a> ·
   <a href="#inside">资源导航</a> ·
@@ -72,6 +73,19 @@ git clone https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 技能目录保存方法，目标项目目录保存你的产品成果。已有项目从实际阶段接续，后续动作沿用目标项目的有效授权。
 
 若使用宿主的原生技能发现，将完整目录放到该宿主支持的技能位置，并核对实际发现与加载情况。**本页的显式读取方式可用于先核对入口；不同宿主的安装与行为支持须分别确认。**
+
+<a id="zcode-plugin"></a>
+## ZCode 插件安装
+
+在 ZCode 打开工作区，进入 **设置 → 插件 → 创建 → 添加市场**，填写：
+
+```text
+https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
+```
+
+添加后，在个人市场 **mingzhang-sdd-marketplace** 中安装并启用 **mingzhang-sdd（v0.6.0）**。打开 **设置 → Skills → 插件技能** 核对来源，在聊天中输入 `$mingzhang-sdd`，或从 `/` 的 Skills 分组选择。
+
+若之前提示 `Marketplace manifest not found`，刷新市场来源或移除失败条目后重新添加上述地址。用户级同名技能可能与插件技能并存，使用时核对来源。此入口使用 ZCode 的 marketplace/plugin 格式；DSH 的 TGZ 安装入口见下一节。
 
 <a id="dsh-plugin"></a>
 ### 从 DSH 插件按钮安装

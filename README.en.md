@@ -20,6 +20,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
+  <a href="#zcode-plugin">ZCode plugin</a> ·
   <a href="#dsh-plugin">DSH plugin</a> ·
   <a href="#workflow">Ten-stage workflow</a> ·
   <a href="#inside">Resources</a> ·
@@ -75,6 +76,19 @@ run tests, or call external services.
 The skill directory contains methods; the target project directory contains your product deliverables. Existing projects resume from their actual stage, and subsequent actions follow the target project's valid authorization.
 
 For native skill discovery, place the full skill directory in a location supported by your host and check that it is actually discovered and loaded. **The explicit reading approach above lets you check the entry point first. Installation and behavior support must be verified for each host.**
+
+<a id="zcode-plugin"></a>
+## ZCode plugin installation
+
+Open a workspace in ZCode, then choose **Settings → Plugins → Create → Add marketplace** and enter:
+
+```text
+https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
+```
+
+Under the personal **mingzhang-sdd-marketplace** source, install and enable **mingzhang-sdd (v0.6.0)**. Check its source under **Settings → Skills → Plugin skills**, then invoke `$mingzhang-sdd` or select it from the slash menu's Skills group.
+
+If an earlier attempt reported `Marketplace manifest not found`, refresh the source or remove the failed entry and add the URL again. Check the selected source if a user-level skill shares the same name. This source uses ZCode marketplace/plugin manifests; the DSH TGZ uses the separate entry below.
 
 <a id="dsh-plugin"></a>
 ### Install through the DSH Plugins button
