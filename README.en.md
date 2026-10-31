@@ -13,9 +13,9 @@
 <p align="center">An SDD skill for working with AI coding agents · From requirements to development, integration testing, and iteration</p>
 
 <p align="center">
-  <img alt="v0.6.0 skill source" src="https://img.shields.io/badge/source-v0.6.0-2563eb?style=flat-square">
+  <img alt="v0.7.0 skill source" src="https://img.shields.io/badge/source-v0.7.0-2563eb?style=flat-square">
   <img alt="Ten-stage workflow" src="https://img.shields.io/badge/workflow-10_stages-0f766e?style=flat-square">
-  <img alt="Local tools require Node.js 24.x" src="https://img.shields.io/badge/local_tools-Node.js_24.x-334155?style=flat-square">
+  <img alt="29 text resources" src="https://img.shields.io/badge/resources-29_text_files-334155?style=flat-square">
 </p>
 
 <p align="center">
@@ -86,22 +86,18 @@ Open a workspace in ZCode, then choose **Settings → Plugins → Create → Add
 https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 ```
 
-Under the personal **mingzhang-sdd-marketplace** source, install and enable **mingzhang-sdd (v0.6.0)**. Check its source under **Settings → Skills → Plugin skills**, then invoke `$mingzhang-sdd` or select it from the slash menu's Skills group.
+Under the personal **mingzhang-sdd-marketplace** source, install and enable **mingzhang-sdd (v0.7.0)**. Check its source under **Settings → Skills → Plugin skills**, then invoke `$mingzhang-sdd` or select it from the slash menu's Skills group.
 
 If an earlier attempt reported `Marketplace manifest not found`, refresh the source or remove the failed entry and add the URL again. Check the selected source if a user-level skill shares the same name. This source uses ZCode marketplace/plugin manifests; the DSH TGZ uses the separate entry below.
 
 <a id="dsh-plugin"></a>
-### Install through the DSH Plugins button
+## DSH plugin installation
 
-The DSH plugin remains **v0.4** and does not contain the new governance rules. Main provides the updated skill source and no longer declares a DSH bundle. Prefer the original TGZ below and enter its local absolute path; for a GitHub source, pin the old commit:
+[Download the v0.7.0 package](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.7.0.tgz) and enter the file's actual absolute path on the DSH machine under **Plugins → Add**. Restart the relevant profile if prompted, then invoke `/mingzhang-sdd`.
 
-```text
-github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
-```
+The bundle is `mingzhang-sdd-dsh`; the skill remains `mingzhang-sdd`. Remove an older bundle from the same profile before adding this version, and check the source of any manually installed skill with the same name. Main is the skill-source and ZCode-marketplace entry; use the TGZ above for DSH.
 
-The bundle is named `mingzhang-sdd-dsh`; the skill remains `mingzhang-sdd`. Restart the relevant profile if prompted, then invoke `/mingzhang-sdd`. You can also [download the standalone package (about 84 KB)](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz) and enter its absolute path on the DSH machine.
-
-[Installation details and verification limits](README.dsh.md): native-manager installation, loading, toggling, and removal were verified in an isolated DSH `0.2.0-rc.2` environment. The actual web button and other versions remain unverified.
+[Installation details](README.dsh.md) · [Version and verification record](VERIFICATION.md). The [legacy v0.4.0 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) remains available for rollback.
 
 <details>
 <summary><strong>Example: review whether the design covers an existing PRD</strong></summary>
@@ -158,49 +154,48 @@ The steps depend on the current task, effective inputs, and user decisions. Proj
 mingzhang-sdd/
 ├── SKILL.md             Entry point and method selection
 ├── skills/              Complete methods for ten stages
-├── rules/               Shared behavior, execution, and requirement rules
-├── references/          Check contracts, collection, and sources
-├── scripts/             Local checking and collection programs
-└── assets/
-    ├── templates/       Requirement record and PRD outlines
-    └── readme/          Images for this overview
+├── rules/               Shared execution, requirements and evaluation rules
+├── references/          Stage organization, governance, checking and sources
+├── assets/
+│   ├── templates/       Requirement record, MRD, PRD and handoff outlines
+│   └── readme/          Images for this overview
+├── marketplace.json     ZCode marketplace entry
+├── plugins/             ZCode plugin and skill copy
+└── dist/                DSH packages, including the retained legacy version
 ```
 
 | To learn about | Read |
 | :--- | :--- |
 | Method selection and scope | [Skill entry point](SKILL.md) · [Action and fact boundaries](rules/core.md) |
-| Recording, confirming, and changing requirements | [Requirement rules](rules/requirements.md) |
-| Running local programs | [Program guide](scripts/README.md) · [Check contract](references/check-contract.md) |
-| Collecting file actions and evidence | [Collection guide](references/collection.md) |
-| Project files, information, and versions | [Shared governance method](references/stage-methods.md#project-material-version-governance) |
-| Task understanding and rule preservation after compaction | [Execution rules, section 11](rules/execution.md#11-任务理解与上下文保全) |
+| Recording, confirming and changing requirements | [Requirement rules](rules/requirements.md) |
+| Tools, actual returns and checks | [Tool use and checking](references/checking.md) |
+| Stage transitions and concise/formal handoffs | [Stage methods](references/stage-methods.md) |
+| Connecting requirements and deliverables | [Requirement traceability](references/traceability.md) |
+| Project files, information and versions | [Project governance](references/project-governance.md) |
+| Arranging an independent evaluation | [Independent testing rules](rules/independent-testing.md) |
+| Organizing documents | [Requirement record](assets/templates/requirements-record.md) · [MRD](assets/templates/mrd.md) · [PRD](assets/templates/prd.md) · [Handoff](assets/templates/handoff.md) |
 | Method origins and adaptation choices | [Sources](references/sources.md) |
 
-### Local helper programs
+### Runtime
 
-The written guidance requires a host agent that can read the skill and project materials. Local programs use the **Node.js 24.x standard library, with no third-party npm dependencies**. The collector also requires Git.
-
-```bash
-node /your/path/mingzhang-sdd/scripts/check-task.mjs --help
-```
-
-`check-task.mjs` checks deterministic conditions for objects, sets of changes, and evidence. `collect-task.mjs` supports observation and collection of fixed file actions. Its `action` mode **actually writes files**, so check the target project's write authorization before using it. See the program guide for protocols, supported formats, and limitations.
-
-This skill guides an agent through instructions. It cannot replace host permission controls, and program results must be assessed against the actual business requirements.
+Version 0.7.0 contains **29 text resources: methods, rules, references and templates**. It uses the host agent's existing file, tool and permission capabilities. The skill source contains no local collection/checking scripts and does not require Node.js. The DSH adapter runs in DSH's environment. Legacy programs and packages remain recoverable through Git history and the old TGZ.
 
 <a id="validation"></a>
 ## Version and validation
 
-The 28 runtime files on main match `skills/mingzhang-sdd/` in the development repository's fixed commit `eb53f8c2289a3250568ad9b5a28bc543204d2c84` byte for byte, carrying forward the v0.6.0 skill source. This is a source identity in the development repository, not a commit in this public repository; other development-time commit references inside the skill retain the same provenance.
+The current source is **v0.7.0, 29 files / 1,564 lines**, copied byte for byte from the development repository's fixed object `c36a9f90405b496a97ab450ad76588cbba07aaca:skills/mingzhang-sdd/`. The root skill, ZCode skill copy and DSH package share this source. The development commit is not a commit in this public repository; pin the public commit you adopt.
 
-This update includes development packages, dependency routes and concurrency rules, rule responsibilities and pre-development handoffs, plus two reviewed batches: task understanding and context preservation; file/information and version governance. Content reviews, static checks and manual text walkthroughs retain their original objects and scopes. They do not establish full v0.6.0 acceptance, model behavior, five-tool support, efficiency or real-world benefits.
+This version includes contract and handoff corrections, checks selected by impact, entry-point deduplication and task-based reading of governance, examples and history. The latest internal collaborative F05 targeted review passed **3/3 trials and 18/18 assertions**, closing only that fixed object's F05 remediation item. The earlier formal independent result remains **`verification_fail`**. With no control group, these results do not establish whole-product acceptance or cost/quality improvement.
 
-| Object | Access and scope |
+| Object | Access and checks |
 | :--- | :--- |
-| Updated skill source | [SKILL.md](SKILL.md) and its full resources on main; pin the public commit when adopting |
-| Legacy DSH plugin | [Original v0.4 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) or fixed commit `d85ebcb73b3f79fd25d0201c210266e602598395`; package bytes unchanged |
-| Updated DSH plugin | Not rebuilt or installation-tested in this update; the updated source is not a verified new plugin |
-| Existing local installations | A GitHub update does not automatically replace installed copies |
+| Skill source | [SKILL.md](SKILL.md) and its resources, 29 files; checked byte for byte against the fixed source |
+| ZCode plugin | Root [marketplace.json](marketplace.json) → `plugins/mingzhang-sdd`, v0.7.0; static manifest, path and copy checks, without a UI installation test |
+| DSH plugin | [v0.7.0 TGZ](dist/mingzhang-sdd-dsh-0.7.0.tgz); native installation, loading, resource reading, toggling and removal passed in a temporary DSH `0.2.1-rc.5` profile, without testing the web button or model behavior |
+| Historical versions | [Original v0.4.0 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) and Git history retained; old results stay bound to their original objects |
+| Existing installations | Update through the host and check the actual selected source after this GitHub update |
+
+See the [version and verification record](VERIFICATION.md) for fixed identities and check details.
 
 <details>
 <summary><strong>Historical v0.4 verification scope and retained limitations</strong></summary>

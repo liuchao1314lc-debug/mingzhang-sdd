@@ -5,7 +5,7 @@
     {
       "name": "mingzhang-sdd",
       "source": "./plugins/mingzhang-sdd",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "description": "SDD workflow guidance from requirements and design to development, integration testing, and iteration.",
       "category": "developer-tools"
     }

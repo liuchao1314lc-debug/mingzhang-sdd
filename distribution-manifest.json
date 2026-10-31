@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-10-31T10:36:54.887908+00:00",
+  "version": "0.7.0",
+  "authoringSource": {
+    "commit": "c36a9f90405b496a97ab450ad76588cbba07aaca",
+    "path": "skills/mingzhang-sdd/",
+    "gitTree": "cc9e15454c8a74bf5e01c209f0188f55c33dfa80",
+    "runtimeFiles": 29,
+    "runtimeLines": 1564,
+    "contentSha256Algorithm": "SHA256(sorted(relativePath + NUL + fileSha256 + LF))",
+    "contentSha256": "708df17bc0accae70095a7a2bfb01ea56dc519bedf317e051403a9325d0a2bfc",
+    "fileSha256": {
+      "SKILL.md": "28b30ff0ec4c7762324c216b48de17459107d51a0e20dc3167514539fa0da8bd",
+      "assets/templates/handoff.md": "d63c71b96bc9ea4407afdc2526d8423c62561e02501ef9f0b3f758f21010a8a7",
+      "assets/templates/mrd.md": "587de5731b4f3c02c938a4ab23bcb9f6e77b55256969d9346fb94e322ee2f235",
+      "assets/templates/prd.md": "f80782d76e70ecb2e6d316127d3c997a80d4a088debaebbb39a89de535f6dcc3",
+      "assets/templates/requirements-record.md": "0493cab5e883ee878bd9158c9001f3f1b6dc492096377a2f3129a9e1236229b6",
+      "references/checking.md": "dbefdae3faad7d288b0a1d02b5d41a3d8c123b3387729edfc53611a87be74c40",
+      "references/messages-examples.md": "d1ca4d681f23fbbf091bdeac22d1917f44aa1bde3d0f4b238f0c8492feb963b8",
+      "references/messages.md": "0c2d9f915941a379bd9e14b6d2e061d215d61743c0a84357439d393635ea9406",
+      "references/project-governance.md": "d8e19edadfb19439355c15305128e3e7af7a9036f740eb01c16cd1d932ce0bd1",
+      "references/sources-history.md": "27b757bcd20216795bd8bd6ff991d05b71238fafd56138340e3cb483ce9fe16b",
+      "references/sources.md": "103744b8db4e23a7a030896350b4a83e302e58981d064414599bbf6a668367ab",
+      "references/stage-methods.md": "4adf4a68031485ee30a8fb525f73177b9bb1f6d9b51a882fcc4ee7706365a77c",
+      "references/traceability-examples.md": "94e3eb0e1e514e61180080f01a75802f08d5c6e9dbaab7a3cac3a1bf8096fd78",
+      "references/traceability.md": "49f4f6d753a0232041d99d9ebfc2ba85fd2bb6865bda5bf789c3138be2b72a5f",
+      "rules/core.md": "708bfb7dee216fc72d384bf4ee36e79cb77e6ff51644b4c5ad963c0be278e4c4",
+      "rules/execution.md": "ea5f4fa627e126a52d90a1716281a6051da54d3074aefcce7fe6fe74f3be8b02",
+      "rules/independent-testing-prd.md": "cbabab5f795e7f3c8927ded957c356b62cceac96be4d743733934c0b3ba7f648",
+      "rules/independent-testing.md": "ee58e7aa88e419ccc04df337973a4de73436fcb40cbb978a69a2f2076a460200",
+      "rules/requirements.md": "7f70ac6ba2cb56f98a14365966ad09f1ad39a496c22e4384892de91f9a8ac7e4",
+      "skills/architecture.md": "eae2e73dee72c8e96451fc604c0c16236ac0e573f4c654f6ad17c4d78eb24fb6",
+      "skills/component.md": "8ed20dc1f6924f9333f2b0e880675be2621d6fd24a060d3620b4d4d234e31866",
+      "skills/development.md": "717013fd1f1f86c79e655d540c54f49d01a39d9b4ab33a37bfc27f5207de7239",
+      "skills/integration-testing.md": "f52fd3384a933f08b28bdba91be976b5ee4928b85844c0f449e8775f5d37b6fb",
+      "skills/iteration.md": "51d91d7f09a1ea796469574c65cca95c0530976f5f72f5822c363e02dedd9583",
+      "skills/module.md": "e240b8d86965353835b4287dc18416c1f017d7b61df1745c4bc5f1552d442656",
+      "skills/mrd.md": "94f66c58c1ffaa148f38dd05ae5ce8d5a91aecc4afc128198f82f004f94b5a49",
+      "skills/prd.md": "8846ac8add92d8fec7c4a41c9eacb27e1a3b79f2a15744c3bcb3b53898f2b228",
+      "skills/startup.md": "651459186bb177d9efea6c0370c4e2aea21d24d65f7ad166cb7157910363698a",
+      "skills/ui.md": "84583873eedb46230b715e4dc2f2e6cc8d3c839c588cde33b8fa68d02c0755b1"
+    }
+  },
+  "distribution": {
+    "rootSkill": "SKILL.md",
+    "zcode": {
+      "marketplace": "marketplace.json",
+      "plugin": "plugins/mingzhang-sdd",
+      "version": "0.7.0",
+      "files": 31,
+      "contentSha256": "c4985fdd78df2246fb2cecdb2f341043729611fa9fcc48ac7f165380e8981f65",
+      "contentSha256Algorithm": "SHA256(sorted(relativePath + NUL + fileSha256 + LF))",
+      "verification": "Static manifests, fixed-source bytes, layout and internal relative Markdown links"
+    },
+    "dsh": {
+      "archive": "dist/mingzhang-sdd-dsh-0.7.0.tgz",
+      "version": "0.7.0",
+      "files": 33,
+      "bytes": 91954,
+      "sha256": "7bdf6dd1622fa33f97aa4d6fee1be84b7f95addf6a9b3cf78756f8fb40fd0751",
+      "nativeCheck": {
+        "dsh": "0.2.1-rc.5",
+        "node": "24.15.0",
+        "pnpm": "11.7.0",
+        "scope": "Temporary isolated profile: local-TGZ manager install, Loader, all resources, disable/enable/removal",
+        "checksPassed": 10
+      }
+    },
+    "legacyDsh": {
+      "archive": "dist/mingzhang-sdd-dsh-0.4.0.tgz",
+      "sha256": "fafc0e2f77fbb7aacd3b4e65a3f69b585652a338aa9dc18d12827a6c31eca837",
+      "unchangedFromPublicCommit": "10bac08f0b11d19084fcfb37e70ad71a98efd587"
+    }
+  },
+  "relativeMarkdownLinks": {
+    "runtimeTotal": 231,
+    "internalTargetsPresent": 229,
+    "externalAuthorHistoryReferences": [
+      {
+        "from": "references/sources.md",
+        "target": "../../../docs/specs/platform-rules-verification-v0.1/review.md"
+      },
+      {
+        "from": "references/sources.md",
+        "target": "../../../docs/specs/platform-rules-verification-v0.1/spec.md"
+      }
+    ]
+  },
+  "evaluation": {
+    "latestTargetedF05": {
+      "sourceCommit": "c36a9f90405b496a97ab450ad76588cbba07aaca",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "high",
+      "trialsPassed": 3,
+      "trials": 3,
+      "assertionsPassed": 18,
+      "assertions": 18,
+      "identity": "Internal collaborative targeted review; no independent human calibration",
+      "authoringReportCommit": "21027fb524dacdb27e37e4afc4bdca562dd74d36",
+      "authoringReportPath": "docs/specs/skills-f05-a6-targeted-review-v0.2/report.md"
+    },
+    "historicalFormalIndependentResult": "verification_fail",
+    "fullIndependentRerunInThisUpdate": false,
+    "controlGroupInLatestTargetedReview": false
+  }
+}

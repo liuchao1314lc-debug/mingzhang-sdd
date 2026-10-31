@@ -13,9 +13,9 @@
 <p align="center">面向 AI 编程协作的 SDD 技能 · 从需求澄清到开发、联调与迭代</p>
 
 <p align="center">
-  <img alt="v0.6.0 技能源" src="https://img.shields.io/badge/source-v0.6.0-2563eb?style=flat-square">
+  <img alt="v0.7.0 技能源" src="https://img.shields.io/badge/source-v0.7.0-2563eb?style=flat-square">
   <img alt="十阶段方法" src="https://img.shields.io/badge/workflow-10_stages-0f766e?style=flat-square">
-  <img alt="本地程序 Node.js 24.x" src="https://img.shields.io/badge/local_tools-Node.js_24.x-334155?style=flat-square">
+  <img alt="29 份文字资源" src="https://img.shields.io/badge/resources-29_text_files-334155?style=flat-square">
 </p>
 
 <p align="center">
@@ -83,22 +83,18 @@ git clone https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 https://github.com/liuchao1314lc-debug/mingzhang-sdd.git
 ```
 
-添加后，在个人市场 **mingzhang-sdd-marketplace** 中安装并启用 **mingzhang-sdd（v0.6.0）**。打开 **设置 → Skills → 插件技能** 核对来源，在聊天中输入 `$mingzhang-sdd`，或从 `/` 的 Skills 分组选择。
+添加后，在个人市场 **mingzhang-sdd-marketplace** 中安装并启用 **mingzhang-sdd（v0.7.0）**。打开 **设置 → Skills → 插件技能** 核对来源，在聊天中输入 `$mingzhang-sdd`，或从 `/` 的 Skills 分组选择。
 
 若之前提示 `Marketplace manifest not found`，刷新市场来源或移除失败条目后重新添加上述地址。用户级同名技能可能与插件技能并存，使用时核对来源。此入口使用 ZCode 的 marketplace/plugin 格式；DSH 的 TGZ 安装入口见下一节。
 
 <a id="dsh-plugin"></a>
-### 从 DSH 插件按钮安装
+## DSH 插件安装
 
-DSH 插件仍使用 **v0.4**；它不含本次新版治理规则。main 提供新版技能源，不再声明 DSH 组合包。优先下载下方原 TGZ，在插件入口填写其本机绝对路径；需要 GitHub 来源时固定到旧提交：
+[下载 v0.7.0 插件包](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.7.0.tgz)，在 DSH **插件 → 添加** 中填写下载文件在 DSH 运行机器上的真实绝对路径。按提示重启对应 profile 后，用 `/mingzhang-sdd` 调用。
 
-```text
-github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e602598395
-```
+组合包名为 `mingzhang-sdd-dsh`，内含技能仍叫 `mingzhang-sdd`。已安装旧版时，先移除同一 profile 中的旧组合包再添加新版；手工安装的同名技能需单独核对来源。main 是技能源和 ZCode 市场入口，DSH 使用上述 TGZ。
 
-安装的组合包叫 `mingzhang-sdd-dsh`，技能仍叫 `mingzhang-sdd`。按提示重启对应 profile 后，用 `/mingzhang-sdd` 调用。也可[下载独立安装包（约84 KB）](https://github.com/liuchao1314lc-debug/mingzhang-sdd/raw/refs/heads/main/dist/mingzhang-sdd-dsh-0.4.0.tgz)，在插件入口填入其本机绝对路径。
-
-[详细安装说明与验证边界](README.dsh.md)：已在 DSH `0.2.0-rc.2` 隔离环境验证原生管理器安装、加载、启停及卸载；实际网页按钮和其他版本仍待确认。
+[详细安装说明](README.dsh.md) · [版本与验证记录](VERIFICATION.md)。[旧 v0.4.0 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) 保留供回退。
 
 <details>
 <summary><strong>示例：已经有 PRD，想检查设计承接</strong></summary>
@@ -152,49 +148,48 @@ github:liuchao1314lc-debug/mingzhang-sdd#d85ebcb73b3f79fd25d0201c210266e60259839
 mingzhang-sdd/
 ├── SKILL.md             技能入口与方法选择
 ├── skills/              十阶段完整方法
-├── rules/               共用行为、执行与需求规则
-├── references/          检查合同、采集与来源说明
-├── scripts/             本地检查与采集程序
-└── assets/
-    ├── templates/       需求记录与 PRD 组织提示
-    └── readme/          本页展示素材
+├── rules/               共用行为、执行、需求与独立评价规则
+├── references/          阶段组织、项目治理、检查与来源说明
+├── assets/
+│   ├── templates/       需求记录、MRD、PRD 与交接组织提示
+│   └── readme/          本页展示素材
+├── marketplace.json     ZCode 市场入口
+├── plugins/             ZCode 插件与技能副本
+└── dist/                DSH 安装包（含保留旧版）
 ```
 
 | 需要了解 | 阅读入口 |
 | :--- | :--- |
 | 技能怎样选择方法与控制范围 | [技能入口](SKILL.md) · [动作与事实边界](rules/core.md) |
 | 需求怎样记录、确认和变更 | [需求记录规则](rules/requirements.md) |
-| 本地程序怎样调用 | [程序说明](scripts/README.md) · [检查合同](references/check-contract.md) |
-| 文件动作与证据怎样采集 | [采集说明](references/collection.md) |
-| 项目文件、信息与版本怎样治理 | [共用治理方法](references/stage-methods.md#project-material-version-governance) |
-| 任务理解与上下文压缩后怎样保全规则 | [执行规则第11节](rules/execution.md#11-任务理解与上下文保全) |
+| 工具供给、真实返回与检查 | [工具使用与检查](references/checking.md) |
+| 阶段接续与日常／正式交接 | [阶段方法](references/stage-methods.md) |
+| 需求与成果关系怎样贯通 | [需求贯通方法](references/traceability.md) |
+| 项目文件、信息与版本怎样治理 | [项目治理](references/project-governance.md) |
+| 独立评价何时接续、怎样组织 | [独立测试规则](rules/independent-testing.md) |
+| 文档怎样组织 | [需求记录](assets/templates/requirements-record.md) · [MRD](assets/templates/mrd.md) · [PRD](assets/templates/prd.md) · [交接](assets/templates/handoff.md) |
 | 方法从哪里来、采用了什么 | [来源说明](references/sources.md) |
 
-### 本地辅助程序
+### 运行方式
 
-文字指导需要宿主 Agent 能读取技能与项目材料。本地程序使用 **Node.js 24.x 标准库，无第三方 npm 依赖**；采集器另需 Git。
-
-```bash
-node /你的路径/mingzhang-sdd/scripts/check-task.mjs --help
-```
-
-`check-task.mjs` 检查对象、改动集合及证据中的确定性条件。`collect-task.mjs` 提供观察与固定文件动作采集，其中 `action` **会实际写入文件**，使用前须核对目标项目的写入许可。详细协议、支持格式与限制见程序说明。
-
-本技能通过文字指导 Agent，不能替代宿主的权限控制；程序检查结果也须结合实际业务要求判断。
+当前 v0.7.0 包含 **29 份文字方法、规则、参考和模板**，通过宿主 Agent 的现有文件、工具与权限能力工作；技能源不附带本地采集／检查脚本，也不要求 Node.js。DSH 插件适配层运行在 DSH 自身环境中。旧版程序与安装包仍可从历史提交／旧 TGZ 恢复。
 
 <a id="validation"></a>
 ## 版本与验证
 
-main 的28份运行文件与制作仓库固定提交 `eb53f8c2289a3250568ad9b5a28bc543204d2c84` 的 `skills/mingzhang-sdd/` 逐字节一致，承接 v0.6.0 技能源。制作仓库提交号用于标明来源，并非本公开仓库的提交号；包内提及的其他制作期固定提交同样保留其来源身份。
+当前技能源为 **v0.7.0，29 份／1,564 行**，逐字节取自制作仓库固定对象 `c36a9f90405b496a97ab450ad76588cbba07aaca:skills/mingzhang-sdd/`。根技能、ZCode 技能副本与 DSH 包使用同一来源；制作仓库提交号不是本公开仓库的提交号，采用时应固定实际公开提交。
 
-这次公开同步包含开发包／路线／并行规则、规则职责与开发前交接，以及已评审通过的两批优化：任务理解与上下文保全、文件／信息与版本治理。正文内容评审和静态／人工文字核对分别按其原对象与范围成立；它们不表示 v0.6.0 整版、模型行为、五工具、效率或真实效果通过。
+本版包含契约与交接修正、按影响条件化的检查、入口去重，以及治理／示例／历史的按任务读取。F05 最新内部协作定向复核为 **3/3、18/18**，只关闭该固定对象的 F05 整改项；旧正式独立评价 **`verification_fail` 保持**。无对照组，不能据此宣称整产品通过或成本／质量改善。
 
-| 对象 | 取得方式与适用身份 |
+| 对象 | 取得方式与检查范围 |
 | :--- | :--- |
-| 新版技能源 | 当前 main 的 [SKILL.md](SKILL.md) 及其完整资源；采用时固定所用公开提交 |
-| 旧版 DSH 插件 | [原 v0.4 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) 或固定旧提交 `d85ebcb73b3f79fd25d0201c210266e602598395`；旧包字节不变 |
-| 新版 DSH 插件 | 本次未重建、未安装验证；不把新版技能源称作已验证插件 |
-| 已有本机安装 | 本次 GitHub 更新不自动替换安装副本 |
+| 技能源 | [SKILL.md](SKILL.md) 及完整资源，29 份；与固定来源逐字节核对 |
+| ZCode 插件 | 根 [marketplace.json](marketplace.json) → `plugins/mingzhang-sdd`，v0.7.0；清单、路径与副本静态核对，未作为实际界面安装验证 |
+| DSH 插件 | [v0.7.0 TGZ](dist/mingzhang-sdd-dsh-0.7.0.tgz)；DSH `0.2.1-rc.5` 临时 profile 的原生安装、加载、资源读取、启停和移除检查通过，未覆盖网页按钮或模型效果 |
+| 历史版本 | [原 v0.4.0 TGZ](dist/mingzhang-sdd-dsh-0.4.0.tgz) 与 Git 历史保留，旧成绩仍绑定原对象 |
+| 已有本机安装 | GitHub 更新后仍需在宿主中更新并核对实际来源 |
+
+固定对象及检查详情见[版本与验证记录](VERIFICATION.md)。
 
 <details>
 <summary><strong>历史 v0.4 验证范围与保留限制</strong></summary>
